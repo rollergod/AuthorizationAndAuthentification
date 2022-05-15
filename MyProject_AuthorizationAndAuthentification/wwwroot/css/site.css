@@ -1,0 +1,77 @@
+﻿html {
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/images/bgiamge.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/images/bgiamge.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container{
+    background-color: white;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.img-fluid {
+    padding-top: 25px;
+}
+
+.card-title {
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1.1;
+    font-weight: 700;
+    font-family: Roboto,sans-serif;
+}
+a:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+/*.reg-button {
+    border-color: #323232;
+    background: linear-gradient(90deg,#323232,#323232);
+    background-color: #323232;
+    color: #fff;
+    padding: 10px 50px;
+}
+
+input {
+    text-indent: 10px;
+    padding: 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 2px;
+    height: 38px;
+    margin: 5px;
+}
+
+.reg-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+reg-reference{
+    text-align: center;
+}*/
+
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-body {
+    width: 723px;
+
+}

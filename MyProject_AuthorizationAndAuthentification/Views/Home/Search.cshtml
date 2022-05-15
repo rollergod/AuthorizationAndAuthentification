@@ -1,0 +1,41 @@
+﻿@model List<Article>
+
+@{
+	Layout = "_LayoutForSingleItem";
+    ViewData["Title"] = "NewsBlog";
+
+}
+<div>
+    <div class="container">
+	    <div class="d-flex align-items-center flex-md-column">
+            
+		
+        @if(Model.Count == 0) {
+            <h2>Новостей с таким заголовков нет. Попробуйте еще раз</h2>
+        }
+        else{
+            @foreach(Article article in Model){
+                string date = article.GetData(article);
+            
+                <div class="card mb-3 mt-lg-5" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <a asp-action="GetArticleById" asp-area="Admin" asp-controller="Article" asp-route-id="@article.Id" class="card-title">
+                          <img src="~/images/@article.ImageName" class="img-fluid rounded-start" alt="...">
+                      </a>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <a asp-action="GetArticleById" asp-area="Admin" asp-controller="Article" asp-route-id="@article.Id" class="card-title">@article.Title</a>
+                        <p class="card-text">@article.ShortDescription</p>
+                        <p class="card-text"><small class="text-muted">Последнее изменение - @date</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+	        }       
+        }
+	    
+        </div>
+    </div>
+</div>

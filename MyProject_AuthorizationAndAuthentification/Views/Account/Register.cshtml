@@ -1,0 +1,63 @@
+﻿@model RegisterModel
+@{
+	Layout = "_Layout";
+}
+
+
+<div class="back">
+	<div class="container">
+		<h2 class="text-center">Регистрация</h2>
+		<div>
+			<form method="post" asp-action="Register" asp-controller="Account" asp-antiforgery="true">
+				<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+				<div>
+					<div class="reg-form">
+						<div class="form-group">
+							<input placeholder="Введите логин" class="reg-input" type="text" asp-for="Login"/>
+							<span asp-validation-for="Login"></span>
+						</div>
+						<div class="form-group">
+							<input placeholder="Введите пароль" class="reg-input" type="password" asp-for="Password"/>
+							<span asp-validation-for="Password"></span>
+						</div>
+						<div class="form-group">
+							<input placeholder="Подтвердите пароль" class="reg-input" type="password" asp-for="ConfirmPassword"/>
+							<span asp-validation-for="ConfirmPassword"></span>
+						</div>
+
+						<div id="divcaptch"></div>
+						<input id="txtcaptcha" type="text" style="display:none" required/>
+						<br />
+
+						<div>
+							<input type="submit" class="reg-button" value="Регистрация"/>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="reg-reference">
+			<span>Есть аккаунт?</span>
+			<a asp-action="Login" asp-controller="Account">Авторизируйтесь</a>
+		</div>
+
+	</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallBack&render=explicit" async defer></script>
+
+<script>
+	var onloadCallBack = function() {
+		grecaptcha.render("divcaptch",{
+			"sitekey" : '6LflBOgeAAAAAOp7StY03bulTvsPz9sdn_8065Db',
+			"callback" : function(response){
+				$('#txtcaptcha').val('t');
+			}
+		})
+	}
+</script>

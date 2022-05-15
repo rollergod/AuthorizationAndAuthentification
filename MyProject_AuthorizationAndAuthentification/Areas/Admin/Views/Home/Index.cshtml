@@ -1,0 +1,35 @@
+﻿@model List<User>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Список пользователей";
+}
+ 
+
+<div class="back">
+    <h2 class="text-center">Список зарегистрированных пользователей</h2>
+	<div>
+        <table class="table table-striped" style="position:inherit; margin:0 auto; width:30%;">
+            <tr><th>Логин</th><th>Роль</th><th></th><th></th></tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Login</td>
+                    <td>@user.Role.Name</td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" asp-action="ChangePassword" 
+                            asp-controller="User" asp-area="" asp-route-id="@user.Id">Изменить пароль</a>
+                    </td>
+                    <td>
+                        <form asp-area="Admin" asp-controller="Home" 
+                            asp-action="Delete" asp-route-id="@user.Id" method="post">
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                Удалить аккаунт
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@using MyProject_AuthorizationAndAuthentification.Models.Club
+@model Club
+
+<div>
+
+    <div class="getClub-item">
+        <h2 class="partialNews-title">Таблицы</h2>
+		    <hr />
+
+        <select id="list" onchange="loadIntoTable();">
+            <option value="SA">Seria A</option>
+            <option value="PL">Premier League</option>
+            <option value="BL">Bundes League</option>
+        </select>
+    </div>
+    <table id="table">
+        <tr id="tr">
+            <th></th>
+        </tr>
+        <tr>
+            <td id="td" style="display:none"></td>
+        </tr>
+    </table>
+
+    <table id="rankings-table" class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Команда</th>
+                <th>М</th>
+                <th>О</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr class="wpos">
+                <td>1</td>
+                <td>Dom</td>
+                <td>1,340</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,48 @@
+﻿@model Article
+
+@{
+	Layout = "_Layout";
+}
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Update" enctype="multipart/form-data">
+			<div asp-validation-summary="ModelOnly"></div>
+			<div class="form-group">
+				<label asp-for="Title" class="control-label">Заголовок</label>
+				<input asp-for="Title" class="form-control"/>
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ShortDescription" class="control-label">Короткое описание</label>
+				<input asp-for="ShortDescription" class="form-control"/>
+				<span asp-validation-for="ShortDescription" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Description" class="control-label">Описание</label>
+				<textarea asp-for="Description" class="form-control" id="editorid"></textarea>
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ImageName">Превью</label>
+				<img src="~/images/@Model.ImageName"/>
+			</div>
+			<div class="form-group">
+				<label asp-for="ImageFile">Превью</label>
+				<input asp-for="ImageFile" accept="image/*" />
+				<span asp-validation-for="ImageFile" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Обновить" class="btn btn-primary"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="~/ckeditor/ckeditor.js"></script>
+
+	<script>
+		CKEDITOR.replace("editorid");
+	</script>
+}

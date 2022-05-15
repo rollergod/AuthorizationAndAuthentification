@@ -1,0 +1,168 @@
+﻿* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #000000;
+}
+
+.ptable table {
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+
+.ptable {
+    margin: 0 auto;
+    width: 300px;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    color: black;
+    font-size: 14px;
+    padding-left: 11px;
+}
+
+.headin {
+    text-align: center;
+    text-decoration: none;
+    color: #ffe221;
+    margin: 30px;
+    display: block;
+}
+
+.wpos {
+    text-align: left;
+}
+
+.wpos td {
+    color: #006496;
+    text-decoration: none;
+    border: 1px solid;
+}
+
+.pos {
+    text-align: center;
+}
+
+.pos td {
+    color: #ff7b21;
+}
+
+table .col {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+
+.col {
+    text-align: left;
+}
+
+.championsleague {
+    background: #7fd498;
+}
+
+.euroleague {
+    background: #cceed6;
+}
+
+.middle {
+    background: white;
+}
+
+.out {
+    background: #ff99b1;
+}
+
+
+.icon-flag {
+    width: 16px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(/images/flags-sprite-original.png);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+}
+
+.icon-flag_1285 {
+    background-position: -113px -3px;
+}
+
+.team-name {
+    font-size: 13px;
+}
+
+.icon-flag_24575 {
+    background-position: -245px -75px;
+}
+
+.icon-flag_1133 {
+    margin: 0 5px 0 2px;
+    width: 16px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(/images/flags-sprite-original.png);
+    background-position: -113px -3px;
+    background-repeat: no-repeat;
+}
+
+
+.icon-flag_24575 {
+    margin: 0 5px 0 2px;
+    width: 16px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(/images/flags-sprite-original.png);
+    background-position: -245px -75px;
+    background-repeat: no-repeat;
+}
+
+.icon-flag_2557 {
+    margin: 0 5px 0 2px;
+    width: 16px;
+    height: 12px;
+    display: inline-block;
+    background-image: url(/images/flags-sprite-original.png);
+    background-position: -25px -57px;
+    background-repeat: no-repeat;
+}
+
+
+.table {
+    width: 14%;
+    position: absolute;
+    right: 400px;
+    top: 222px;
+}
+
+.table td {
+    font-size: 12px;
+    padding: 3px;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    padding-left: 5px;
+    padding-right: 0px;
+    font-size: 12px;
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.getClub-item {
+    position: absolute;
+    top: 176px;
+    right: 400px;
+}
+
+#list {
+    border: 1px solid;
+    font-size: 11px;
+    margin: 0px 0px 0px 14px;
+}

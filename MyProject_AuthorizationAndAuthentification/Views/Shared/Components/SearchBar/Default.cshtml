@@ -1,0 +1,51 @@
+﻿@using MyProject_AuthorizationAndAuthentification.Views.Shared.Components.SearchBar
+@model SPager
+@{
+Layout = "_Layout";
+}
+<div>
+    <form asp-action="@Model.Action" asp-controller="@Model.Controller">
+        <span class="btn-grop">
+            <input class="form-control" type="text" name="articleSearch" 
+                value="@Model.SearchText" placeholder="Enter the text"/>
+            <input class="p-1 ml-2 btn btn-sm btn-info" value="Search" type="submit"/>
+        </span>
+    </form>
+</div>
+
+
+@*/pagination*@
+@*<div class="container">
+    @if(Model.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+        @if(Model.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pg="1">First</a>
+            </li>
+            <li>
+                <a class="page-link" asp-controller="@Model.Controller" asp-action="@Model.Action"
+                    asp-route-pg="@(Model.CurrentPage-1)">Previous</a>
+            </li>
+        }
+        @for(var pge = Model.StartPage; pge <= Model.EndPage; pge++)
+        {
+            <li class="page-item" @(pge == Model.CurrentPage ? "active" : "")>
+                <a class="page-link" asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pg="@pge">@pge</a>    
+            </li>
+        }
+        @if(Model.CurrentPage < Model.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-pg="@(Model.CurrentPage +1)">Next</a>
+            </li>
+            <li>
+                <a class="page-link" asp-controller="@Model.Controller" asp-action="@Model.Action"
+                    asp-route-pg="@(Model.TotalPages)">Last</a>
+            </li>
+        }
+    </ul>
+    }
+    
+</div>*@

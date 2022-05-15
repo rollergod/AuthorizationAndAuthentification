@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/styleForSinglePageItem.css" />
+    <link rel="icon" href="~/favicons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/favicons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/css/styleSearchBar.css"/>
+    <link rel="stylesheet" href="~/css/styleHotNews.css"/>
+    <link rel="stylesheet" href="~/css/styleTable.css"/>
+</head>
+<body class="img">
+     <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Renza</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mr-2">
+                    <partial name="_LoginStatusPartial"></partial>
+                </div>
+                <div>
+                    <form asp-action="Search" asp-controller="Home">
+                        <div class="search">
+                            <div class="icon"></div>
+                            <div class="input">
+                                <input type="text" placeholder="Search" id="mysearch" name="articleSearch">
+                            </div>
+                            <span class="clear"></span>
+                            <input class="p-1 ml-2 btn btn-sm btn-info" value="Search" type="submit"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="back">
+        @RenderBody()
+    </div>
+
+    <footer class="footer text-muted">
+
+    </footer>
+    <script src="~/js/bootstrap.min.js"></script>
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    <script src="~/js/app.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

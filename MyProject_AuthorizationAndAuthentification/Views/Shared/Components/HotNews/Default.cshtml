@@ -1,0 +1,29 @@
+﻿@model List<Article>	
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/css/styleHotNews.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <div class="partialNews">
+		<h2 class="partialNews-title">Последние новости</h2>
+		<hr />
+		@foreach(Article article in Model){
+			<div class="item">
+				<p class="item-date">@article.CreateDate</p>
+				<a asp-action="GetArticleById" asp-area="Admin" asp-controller="Article" asp-route-id="@article.Id" class="item-title">@article.Title</a>
+			</div>
+		}
+	</div>
+
+</body>
+
+	@*<style>
+		.news-item_date{
+			font-size: 100px;
+		}
+	</style>*@
+</html>

@@ -1,0 +1,42 @@
+﻿hr {
+    border-top: 2px solid #7f7f7f;
+    margin: 6px 0 0 13px;
+    width: 267px;
+}
+
+p{
+    margin: 0;
+}
+
+.partialNews {
+    width: 300px;
+    position: absolute;
+    margin-top: 115px;
+    font-size: 16px;
+}
+
+.item {
+    margin: 15px;
+}
+
+.item-date {
+    font-size: 11px;
+    color: #888;
+}
+
+.item-title {
+    color: #000000;
+    text-decoration: none;
+}
+
+.item-title:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.partialNews-title {
+    margin-left: 13px;
+    color: #00aa32;
+    font-size: 14px;
+    text-transform: uppercase;
+}

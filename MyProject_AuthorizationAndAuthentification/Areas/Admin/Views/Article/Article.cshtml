@@ -1,0 +1,23 @@
+﻿@model Article
+
+
+@{
+    Layout = "_LayoutForSingleItem";
+    ViewData["Title"] = @Model.Title;
+}
+
+<div class="container mt-5">
+	<div class="d-flex align-items-center flex-md-column">
+
+        <div class="card-body">
+            <p><strong>@Model.Title</strong></p>
+            <img src="~/images/@Model.ImageName" style="display:block; margin: 0 auto;" alt="Opps..The image was not found">
+            <p class="card-text">@Html.Raw(@Model.Description)</p>
+            <p class="card-text">
+                <small class="text-muted">Последнее изменение -  @Model.CreateDate </small>
+                <small class="text-muted">Создатель -  @Model.User.Login </small>    
+            </p>
+        </div>
+            
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model List<Article>
+
+@{
+	Layout = "_Layout";
+}
+
+
+<div>
+	<table>
+		<tr>
+			<th>
+				Заголовок
+			</th>
+			<th>
+				Дата создания
+			</th>
+			<th>
+				Создатель
+			</th>
+		</tr>
+
+		@foreach(Article article in Model)
+		{
+			<tr>
+				<td>
+					<a asp-action="GetArticleById" asp-route-id="@article.Id">@article.Title</a>
+				</td>
+				<td>
+					@article.CreateDate
+				</td>
+				<td>
+					@article.User.Login
+				</td>
+				<td>
+					<a asp-action="Update" asp-controller="Article" asp-route-id="@article.Id">Изменить</a>
+				</td>
+			</tr>
+		}
+	</table>
+</div>

@@ -1,0 +1,58 @@
+﻿@model List<Article>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "NewsBlog";
+    var roleName = ViewBag.CurrentRole;
+}
+<div>
+    <div>
+        @*@await Html.PartialAsync("_HotNewsPartial")*@
+        @*@{await Html.RenderPartialAsync("_HotNewsPartial");}*@
+        @*<partial name="_HotNewsPartial"></partial>*@
+        <vc:hot-news articles="@ViewBag.Articles"></vc:hot-news>
+    </div>
+     @*<vc:search-bar search-pager="@ViewBag.SearchPager"></vc:search-bar>*@
+
+    <div class="container">
+	    <div class="d-flex align-items-center flex-md-column">
+	    <h1 class="text-center">ГЛАВНЫЕ НОВОСТИ</h1>
+
+        <a style="padding:0; margin:0" asp-action="Create" asp-controller="Article" asp-area="Admin">Создать статью</a>
+	    @foreach(Article article in Model){
+            string date = article.GetData(article);
+            
+            <div class="card mb-3 mt-lg-5" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <a asp-action="GetArticleById" asp-area="Admin" asp-controller="Article" asp-route-id="@article.Id" class="card-title">
+                      <img src="~/images/@article.ImageName" class="img-fluid rounded-start" 
+                            alt="...">
+                  </a>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <a asp-action="GetArticleById" asp-area="Admin" asp-controller="Article" asp-route-id="@article.Id" 
+                       style="width:300px;display:block;" class="card-title">@article.Title</a>
+                    <p class="card-text" style="width:326px;">@article.ShortDescription</p>
+                    <p class="card-text"><small class="text-muted">Последнее изменение - @date</small></p>
+                    <p class="card-text"><small class="text-muted">@article.User.Login</small></p>
+                    @*Проверка на имя пользователя. *@
+                    @if(User.Identity.Name == @article.User.Login || roleName == "admin")
+                    {
+                        <span class="card-text"><a asp-action="Update" asp-controller="Article" 
+                            asp-area="Admin" asp-route-id="@article.Id" class="text-muted">Изменить</a></span>        
+                        <span class="card-text"><a asp-action="Delete" asp-controller="Article"
+                            asp-area="Admin" asp-route-id="@article.Id" class="text-muted">Удалить</a></span>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+	    }       
+        </div>
+        <vc:league-table></vc:league-table>
+        @*@await Component.InvokeAsync("LeagueTable")*@
+    </div>
+</div>
+
