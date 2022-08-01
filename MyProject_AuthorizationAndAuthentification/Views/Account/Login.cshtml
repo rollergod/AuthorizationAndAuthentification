@@ -9,7 +9,6 @@
 		<h2 class="text-center">Авторизация</h2>
 		<div>
 			<form method="post" asp-action="Login" asp-controller="Account" asp-antiforgery="true">
-				<div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
 				<div class="reg-form">
 					<div class="form-group row">
@@ -29,6 +28,8 @@
 					<input id="txtcaptcha" type="text" style="display:none" required/>
 					<br />
 
+				<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
 					<div class="form-group row">
 						<div class="col-2">
 							<input type="submit" value="Войти" class="reg-button"/>
@@ -43,8 +44,8 @@
 			<a asp-action="Register" asp-controller="Account">Регистрация</a>
 		</div>
 	</div>
-
 </div>
+
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
