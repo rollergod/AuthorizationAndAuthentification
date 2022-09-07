@@ -21,4 +21,9 @@
     <Folder Include="wwwroot\favicons\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyProject.Repository\MyProject.Repository.csproj" />
+    <ProjectReference Include="..\MyProject.Services\MyProject.Services.csproj" />
+  </ItemGroup>
+
 </Project>

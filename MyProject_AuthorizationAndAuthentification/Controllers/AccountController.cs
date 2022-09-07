@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyProject_AuthorizationAndAuthentification.Models;
-using MyProject_AuthorizationAndAuthentification.Models.ViewModels;
+using MyProject.Domain;
+using MyProject.Domain.ViewModels;
+using MyProject.Repotisory;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -12,10 +13,10 @@ namespace MyProject_AuthorizationAndAuthentification.Controllers
 {
     public class AccountController : Controller
     {
-        UserContext _db;
-        public AccountController(UserContext db)
+        private readonly UserContext _userContext;
+        public AccountController(UserContext userContext)
         {
-            _db = db;
+            _userContext = userContext;
         }
 
         [HttpGet]
@@ -30,7 +31,7 @@ namespace MyProject_AuthorizationAndAuthentification.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await _db.Users
+                User user = await _userContext.Users
                     .Include(u => u.Role)
                     .FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
 
@@ -57,19 +58,19 @@ namespace MyProject_AuthorizationAndAuthentification.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = await _db.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
+                User user = await _userContext.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
 
                 if (user is null)
                 {
                     user = new User { Login = model.Login, Password = model.Password };
-                    Role userRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+                    Role userRole = await _userContext.Roles.FirstOrDefaultAsync(r => r.Name == "user");
                     if (userRole is not null)
                     {
                         user.Role = userRole;
                     }
 
-                    _db.Users.Add(user);
-                    await _db.SaveChangesAsync();
+                    _userContext.Users.Add(user);
+                    await _userContext.SaveChangesAsync();
 
                     await Authenticate(user);
 

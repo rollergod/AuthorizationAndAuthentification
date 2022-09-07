@@ -37,7 +37,7 @@
                     <p class="card-text" style="width:326px;">@article.ShortDescription</p>
                     <p class="card-text"><small class="text-muted">Последнее изменение - @date</small></p>
                     <p class="card-text"><small class="text-muted">@article.User.Login</small></p>
-                    @*Проверка на имя пользователя. *@
+                    @*Проверка на имя пользователя или роль. *@
                     @if(User.Identity.Name == @article.User.Login || roleName == "admin")
                     {
                         <span class="card-text"><a asp-action="Update" asp-controller="Article" 

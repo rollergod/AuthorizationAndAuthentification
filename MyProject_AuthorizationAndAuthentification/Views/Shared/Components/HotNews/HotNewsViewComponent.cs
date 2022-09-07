@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyProject_AuthorizationAndAuthentification.Models;
+using MyProject.Domain;
 using System.Collections.Generic;
 using System.Linq;
 

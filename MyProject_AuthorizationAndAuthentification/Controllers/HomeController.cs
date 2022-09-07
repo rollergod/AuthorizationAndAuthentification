@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyProject_AuthorizationAndAuthentification.Models;
-using MyProject_AuthorizationAndAuthentification.Models.ViewModels;
+using MyProject.Repotisory;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,7 +16,6 @@ namespace MyProject_AuthorizationAndAuthentification.Controllers
             _context = context;
         }
 
-
         public async Task<IActionResult> Search(string articleSearch)
         {
             var articles = await _context.Articles.ToListAsync();
@@ -28,23 +26,24 @@ namespace MyProject_AuthorizationAndAuthentification.Controllers
             return View(articles);
         }
 
-
         [Authorize]
         public async Task<IActionResult> Index()
         {
-
+            //Получаем статьи, также получаем пользователя, который создал статью
+            //сортируем по самым новым
             var articles = await _context.Articles.Include(a => a.User).Include(a => a.User.Role)
                 .OrderByDescending(article => article.CreateDate).ToListAsync();
+
             var currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Login == User.Identity.Name);
 
-
             ViewBag.CurrentRole = currentUser.Role.Name;
-
 
             //HotNews
             ViewBag.Articles = articles;
             return View(articles);
         }
+
+
 
     }
 }

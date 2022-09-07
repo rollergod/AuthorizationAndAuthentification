@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyProject_AuthorizationAndAuthentification.Models;
-using MyProject_AuthorizationAndAuthentification.Models.ViewModels;
-using MyProject_AuthorizationAndAuthentification.Services;
+using MyProject.Domain.ViewModels;
+using MyProject.Repotisory;
+using MyProject.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
